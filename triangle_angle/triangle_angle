@@ -1,0 +1,45 @@
+fn main()
+{
+    // import input reader object and functionality
+    use std::io;
+    use std::io::Stdin;
+
+    // import splitwhitespace object and functionlity 
+    use std::str::SplitWhitespace;
+
+
+    // create input reader object
+    let input_reader: Stdin = io::stdin();
+
+    // var to hold input
+    let mut input: String = String::new();
+
+    // var to hold split values
+    let mut nums_split: SplitWhitespace = "".split_whitespace();
+
+    // array to hold; angle 1, angle 2
+    let mut nums: [i32; 2] = [0,0];
+
+
+    // readline and assign value into input variable
+    input_reader.read_line(&mut input).expect("Readline = Failed");
+
+
+    // leseliecharleyhorse
+    // split values
+    nums_split = input.split_whitespace();
+
+
+    // assing values
+    // create for loop to iterate thru split values
+    for i in 0..2
+        {
+            // assign the int value of the parsed string 
+            nums[i] = nums_split.next().expect("Access Element = Failed").parse::<i32>().expect("Convert to i32 = Failed");
+        }
+
+
+    // print result
+    println!("{}", (180) - (nums[0] + nums[1]));
+
+}
